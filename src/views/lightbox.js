@@ -11,7 +11,7 @@ RTEApp.view('LightBoxView', ['jQuery', 'utils', '$template'],
         };
 
         var tpl = $template()
-            .div({class: 'at-slider'})
+            .div({class: 'at-lightbox'})
                 .div({class: "{{ displayed ? 'displayed' : '' }}"})
                     .$Accessor('$(this).outerWidth()', 'setItemWidth($value)', 'resize')
                     .$Accessor('$(this).outerHeight()', 'setItemHeight($value)', 'resize')
