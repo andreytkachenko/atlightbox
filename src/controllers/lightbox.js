@@ -2,8 +2,8 @@
  * Created by tkachenko on 14.04.15.
  */
 
-ATF.controller('LightBoxController', ['$scope'],
-    function ($scope) {
+ATF.controller('LightBoxController', ['$scope', 'jQuery'],
+    function ($scope, $) {
         $scope.$extend({
             data: [],
             items: [],

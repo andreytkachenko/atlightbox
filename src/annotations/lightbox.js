@@ -2,8 +2,8 @@
  * Created by tkachenko on 14.04.15.
  */
 
-ATF.invoke(['$directiveProvider', 'utils', 'LightBoxController'],
-    function ($directiveProvider, utils, lightBoxController) {
+ATF.invoke(['$directiveProvider', 'utils', 'LightBoxController', 'jQuery'],
+    function ($directiveProvider, utils, lightBoxController, $) {
         var lightBoxInitialized = false;
         var $lightBoxScope = lightBoxController.scope;
         var initializeLightBox = function (scope, data, view) {
