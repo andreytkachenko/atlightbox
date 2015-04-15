@@ -16,6 +16,14 @@ ATF.invoke(['$directiveProvider', 'utils', 'LightBoxController', 'jQuery'],
                 scope.$emit('goto', item.id);
             }).bind(scope));
 
+            $lightBoxScope.$on('light-box.open', (function (index, item) {
+                scope.$emit('light-box.open', index, item);
+            }).bind(scope));
+
+            $lightBoxScope.$on('light-box.close', (function (index, item) {
+                scope.$emit('light-box.close', index, item);
+            }).bind(scope));
+
             lightBoxInitialized = true;
         };
 
