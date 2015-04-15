@@ -150,8 +150,6 @@ ATF.controller('LightBoxController', ['$scope', 'jQuery'],
                     return;
                 }
 
-                this.scrolling = true;
-
                 if (this._handler) clearTimeout(this._handler);
                 this._handler = setTimeout((function() {
                     var gap = 0;
@@ -169,7 +167,6 @@ ATF.controller('LightBoxController', ['$scope', 'jQuery'],
                         this.transitionScrolling(gap);
                     }
 
-                    this.scrolling = false;
                     this.$digest();
                     this._handler = null;
                 }).bind(this), 200);
@@ -220,7 +217,7 @@ ATF.controller('LightBoxController', ['$scope', 'jQuery'],
 
             close: function () {
                 this.displayed = false;
-                this.$emit('light-box.close');
+                this.$emit('light-box.close', this._normalizeIndex(this.offset), this.current);
                 this.$apply();
             },
 
@@ -318,7 +315,7 @@ ATF.controller('LightBoxController', ['$scope', 'jQuery'],
                     }
                 }).bind(this));
 
-                this.$emit('light-box.open');
+                this.$emit('light-box.open', this._normalizeIndex(this.offset), this.current);
             },
 
             initialize: function () {
